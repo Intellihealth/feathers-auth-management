@@ -2,9 +2,9 @@
 /* eslint-env node */
 /* eslint no-param-reassign: 0 */
 
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 const crypto = require('crypto');
-const auth = require('@feathersjs/authentication-local').hooks;
+const auth = require('../authentication-local').hooks;
 const errors = require('@feathersjs/errors');
 const debug = require('debug')('authManagement:helpers');
 
