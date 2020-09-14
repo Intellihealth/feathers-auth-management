@@ -75,8 +75,7 @@ function resetPassword (options, query, tokens, password) {
         return patchUser(user, {
           resetToken: null,
           resetShortToken: null,
-          resetExpires: null,
-          isWorkFactorChanged: true,
+          resetExpires: null
         })
           .then(() => {
             throw new errors.BadRequest('Invalid token. Get for a new one. (authManagement)',
@@ -89,7 +88,8 @@ function resetPassword (options, query, tokens, password) {
         password: hashedPassword,
         resetToken: null,
         resetShortToken: null,
-        resetExpires: null
+        resetExpires: null,
+        isWorkFactorChanged: true
       })
         .then(user1 => notifier(options.notifier, 'resetPwd', user1))
         .then(user1 => sanitizeUserForClient(user1));
