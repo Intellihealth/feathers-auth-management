@@ -38,7 +38,8 @@ module.exports = function passwordChange (options, identifyUser, oldPassword, pa
     ]))
     .then(([user1, hashedPassword]) => // value from comparePassword is not needed
       patchUser(user1, {
-        password: hashedPassword
+        password: hashedPassword,
+        isWorkFactorChanged: true,
       })
     )
     .then(user1 => notifier(options.notifier, 'passwordChange', user1))

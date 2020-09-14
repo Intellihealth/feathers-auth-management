@@ -75,7 +75,8 @@ function resetPassword (options, query, tokens, password) {
         return patchUser(user, {
           resetToken: null,
           resetShortToken: null,
-          resetExpires: null
+          resetExpires: null,
+          isWorkFactorChanged: true,
         })
           .then(() => {
             throw new errors.BadRequest('Invalid token. Get for a new one. (authManagement)',
